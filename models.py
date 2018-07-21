@@ -8,8 +8,10 @@ reload(sys)
 sys.setdefaultencoding("utf8")
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost:3306/quechao_flask?charset=utf8'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@192.168.1.114:3306/quechao_flask?charset=utf8'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+# app.config['SQLALCHEMY_ON_TEARDOWN'] = True
 db = SQLAlchemy(app)
 
 
@@ -23,4 +25,5 @@ class User(db.Model):
 
 
 if __name__ == '__main__':
+    print(db)
     db.create_all()

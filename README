@@ -1,0 +1,17 @@
+yum install python-devel mysql-devel
+
+pip install MySQL-python
+
+登录数据库：mysql -u root -pvmware
+
+mysql>use mysql;
+
+mysql>update user set host = '%' where user = 'root';
+
+mysql>select host, user from user;
+
+mysql>FLUSH RIVILEGES
+
+pip freeze > requirements.txt
+
+pip install -r requirement.txt
